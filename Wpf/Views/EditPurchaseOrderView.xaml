@@ -1,0 +1,156 @@
+﻿<UserControl
+    x:Class="Wpf.Views.EditPurchaseOrderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa5="http://schemas.fontawesome.com/icons/"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:Wpf.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadPurchaseOrderCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Border Background="Black">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="{Binding DynamicTitle}" />
+        </Border>
+
+        <Grid Grid.Row="2" Margin="30,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="Criterio de Búsqueda" />
+
+            <TextBox
+                Grid.Column="1"
+                Height="40"
+                Padding="5,10,0,0"
+                Text="{Binding Filter}" />
+
+            <Button
+                Grid.Column="2"
+                Width="140"
+                HorizontalAlignment="Center"
+                Command="{Binding SearchPurchaseOrderDetailsCommand}"
+                Style="{StaticResource DatabaseStyle}">
+                <Button.Content>
+                    <StackPanel
+                        Margin="0,0,15,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+
+                        <fa5:SvgAwesome
+                            Height="20"
+                            Margin="15,0,15,0"
+                            Foreground="WhiteSmoke"
+                            Icon="Solid_Binoculars" />
+
+                        <TextBlock Text="Buscar" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <DataGrid
+            Grid.Row="4"
+            Margin="30,0,30,0"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            CanUserAddRows="false"
+            CanUserResizeColumns="False"
+            GridLinesVisibility="None"
+            IsReadOnly="True"
+            ItemsSource="{Binding PurchaseOrderDetails}"
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectionMode="Single"
+            SelectionUnit="Cell">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="150" Header="SKU">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBox
+                                    Width="130"
+                                    Height="30"
+                                    Padding="5"
+                                    CharacterCasing="Upper"
+                                    MaxLength="20"
+                                    Text="{Binding SKU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding ItemNumber}"
+                    Header="No. de Item" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding ItemDescription}"
+                    Header="Descripcion de Item" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Unit}"
+                    Header="Unidad" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding Ordered}"
+                    Header="Ordenado" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel
+            Grid.Row="6"
+            Margin="0,0,15,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            <Button
+                Width="120"
+                Height="40"
+                VerticalAlignment="Center"
+                Command="{Binding UpdatePurchaseOrderDetailsCommand}"
+                Content="Guardar"
+                Style="{StaticResource PrimaryStyle}" />
+
+            <Button
+                Width="120"
+                Height="40"
+                Margin="15,0,0,0"
+                VerticalAlignment="Center"
+                Command="{Binding CloseCommand}"
+                Content="Cerrar"
+                Style="{StaticResource SecondaryStyle}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

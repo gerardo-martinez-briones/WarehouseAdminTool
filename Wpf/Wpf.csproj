@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Resources\Images\favicon.ico</ApplicationIcon>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Resources\Fonts\LICENSE.txt" />
+		<None Remove="Resources\Fonts\Montserrat-Black.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-BlackItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-BoldItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-ExtraBold.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-ExtraBoldItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-ExtraLight.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-ExtraLightItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Italic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Light.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-LightItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-MediumItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Regular.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-SemiBold.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-Thin.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-ThinItalic.ttf" />
+		<None Remove="Resources\Fonts\Montserrat-VariableFont_wght.ttf" />
+		<None Remove="Resources\Images\background.png" />
+		<None Remove="Resources\Images\favicon.ico" />
+		<None Remove="Resources\Images\logo.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Resources\Images\favicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="FontAwesome5" Version="2.1.11" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+		<PackageReference Include="NLog" Version="5.3.2" />
+		<PackageReference Include="NLog.Extensions.Logging" Version="5.3.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.31">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Persistence\Persistence.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Fonts\LICENSE.txt" />
+		<Resource Include="Resources\Fonts\Montserrat-Black.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-BlackItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Bold.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-BoldItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-ExtraBold.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-ExtraBoldItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-ExtraLight.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-ExtraLightItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Italic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Light.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-LightItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Medium.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-MediumItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Regular.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-SemiBold.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-Thin.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-ThinItalic.ttf" />
+		<Resource Include="Resources\Fonts\Montserrat-VariableFont_wght.ttf" />
+		<Resource Include="Resources\Images\background.png" />
+		<Resource Include="Resources\Images\favicon.ico" />
+		<Resource Include="Resources\Images\logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Nlog.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>
