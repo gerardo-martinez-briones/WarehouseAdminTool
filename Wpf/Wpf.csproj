@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<AssemblyName>WarehouseAdminTool</AssemblyName>
 		<UseWPF>true</UseWPF>
 		<ApplicationIcon>Resources\Images\favicon.ico</ApplicationIcon>
 	</PropertyGroup>
